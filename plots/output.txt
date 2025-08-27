@@ -1,0 +1,374 @@
+🚀 Starting Comprehensive Mutual Fund Analysis Pipeline
+======================================================================
+
+📊 STEP 1: Data Loading and Initial Processing
+--------------------------------------------------
+Step 1: Loading and Initial Cleaning...
+Loaded 1135 initial records.
+Universe defined. 463 funds remaining after filtering.
+Step 2: Engineering Features...
+Imputed missing values in 'Creation___Redemption_Fee' with median: nan
+Imputed missing values in 'Median_Mkt_Cap_M' with median: 1390051.00
+Imputed missing values in 'Mean_Ret_5Y_Ann' with median: 22.75
+Imputed missing values in 'Avg_Price_Cash_Flow' with median: 29.05
+Imputed missing values in 'Back_Load' with median: 1.00
+Imputed missing values in 'Front_End_Load' with median: 0.00
+Imputed missing values in 'Beta_3Y' with median: 0.93
+Imputed missing values in 'Front_Load' with median: 0.00
+Imputed missing values in 'Avg_Dvd_Yield' with median: 0.88
+Imputed missing values in 'Ret_Vs_Idx_3Y' with median: -1.15
+Imputed missing values in 'Alpha_3Y' with median: 0.11
+Step 3: Creating Target Variable...
+Target variable 'Is_Bottom_Quintile' created based on 'Sharpe_3Y <= 0.61'.
+Class distribution:
+Is_Bottom_Quintile
+0    0.799136
+1    0.200864
+Name: proportion, dtype: float64
+✅ Successfully loaded 463 funds
+
+🔍 Data Quality Check - After Initial Processing
+------------------------------
+⚠️  Features with missing values: 1
+Top 5 features with most missing values:
+  • Creation___Redemption_Fee: 463 (100.0%)
+✅ No infinite values found
+📊 Data shape: (463, 29)
+📈 Numeric features: 25
+📝 Non-numeric features: 4
+
+🔧 STEP 2: Advanced Feature Engineering
+--------------------------------------------------
+Starting comprehensive feature engineering...
+Creating momentum features...
+Creating risk features...
+Creating fundamental features...
+Creating interaction features...
+Creating percentile features...
+Creating technical features...
+Creating statistical features...
+Creating regime features...
+Performing comprehensive data cleaning...
+Replacing infinite values...
+Dropping column Creation___Redemption_Fee due to 100.00% missing values
+Removing zero-variance features...
+Removing zero-variance feature: Front_End_Load
+Removing zero-variance feature: Is_New_Fund
+Final data quality check:
+  - Remaining NaN values: 0
+  - Remaining infinite values: 0
+  - Final feature count: 135
+Feature engineering and data cleaning complete!
+
+============================================================
+FEATURE ENGINEERING SUMMARY
+============================================================
+
+📊 MOMENTUM Features (8):
+  • Momentum_1M_3M: Short-term vs medium-term momentum differential
+  • Momentum_3M_6M: No description available
+  • Momentum_6M_1Y: No description available
+  • Return_Rank_1M: Cross-sectional ranking of 1-month returns
+  • Return_Rank_3M: No description available
+  ... and 3 more
+
+📊 RISK Features (34):
+  • Sharpe_3Y: No description available
+  • Std_Dev_1Y-M: No description available
+  • Beta_3Y: No description available
+  • Sharpe_1Y: One-year Sharpe ratio approximation
+  • Risk_Adjusted_Return: No description available
+  ... and 29 more
+
+📊 FUNDAMENTAL Features (29):
+  • Expense_Ratio: No description available
+  • Fund_Age_Months: No description available
+  • Expense_Efficiency: Return generated per unit of expense
+  • Expense_Rank: No description available
+  • Size_Quintile: Fund size quintile ranking
+  ... and 24 more
+
+📊 INTERACTION Features (8):
+  • Size_Return_Interaction: Interaction between fund size and returns
+  • Size_Risk_Interaction: No description available
+  • Age_Return_Interaction: Interaction between fund age and performance
+  • Age_Risk_Interaction: No description available
+  • Expense_Alpha_Interaction: No description available
+  ... and 3 more
+
+📊 PERCENTILE Features (46):
+  • Is_Bottom_Quintile: No description available
+  • Size_Quintile: Fund size quintile ranking
+  • Tot_Ret_1Y_Percentile: No description available
+  • Tot_Ret_1Y_Quintile_Q1: No description available
+  • Tot_Ret_1Y_Quintile_Q2: No description available
+  ... and 41 more
+
+📊 TECHNICAL Features (9):
+  • Tot_Ret_1M_Trend_Strength: No description available
+  • Tot_Ret_3M_Trend_Strength: No description available
+  • Tot_Ret_6M_Trend_Strength: No description available
+  • Tot_Ret_1Y_Trend_Strength: No description available
+  • Short_Term_MA: No description available
+  ... and 4 more
+
+📊 STATISTICAL Features (10):
+  • Tot_Ret_1Y_ZScore: No description available
+  • Tot_Ret_1Y_Outlier: No description available
+  • Alpha_3Y_ZScore: No description available
+  • Alpha_3Y_Outlier: No description available
+  • Sharpe_3Y_ZScore: No description available
+  ... and 5 more
+
+📊 REGIME Features (18):
+  • Alpha_3Y: No description available
+  • Expense_Alpha_Interaction: No description available
+  • Beta_Alpha_Product: No description available
+  • Alpha_3Y_Percentile: No description available
+  • Alpha_3Y_Quintile_Q1: No description available
+  ... and 13 more
+
+Total features created: 135
+============================================================
+
+🔍 Data Quality Check - After Feature Engineering
+------------------------------
+✅ No missing values found
+✅ No infinite values found
+📊 Data shape: (463, 135)
+📈 Numeric features: 95
+📝 Non-numeric features: 40
+
+🎯 STEP 3: Feature Selection Analysis
+--------------------------------------------------
+Performing feature selection analysis...
+Initial feature count: 94
+Final feature count for selection: 94
+
+============================================================
+FEATURE SELECTION RESULTS
+============================================================
+
+Top 10 Features by F-Test:
+  Sharpe_3Y_Percentile: 428.20
+  Sharpe_3Y_ZScore: 315.79
+  Sharpe_3Y: 315.79
+  Tot_Ret_3Y: 293.68
+  Mean_Ret_5Y_Ann: 188.23
+  Performance_Composite: 148.14
+  Risk_Adjusted_Return: 110.50
+  Sharpe_1Y: 110.50
+  Risk_Adjusted_AUM: 103.34
+  Size_Risk_Interaction: 102.41
+
+Top 10 Features by Mutual Information:
+  Sharpe_3Y: 0.5007
+  Sharpe_3Y_ZScore: 0.5005
+  Sharpe_3Y_Percentile: 0.4994
+  Tot_Ret_3Y: 0.3551
+  Mean_Ret_5Y_Ann: 0.1974
+  Performance_Composite: 0.1964
+  Risk_Efficiency: 0.1697
+  Performance_Volatility: 0.1295
+  Risk_Adjusted_AUM: 0.1284
+  Beta_Alpha_Product: 0.1279
+
+Top 10 Features by Random Forest:
+  Sharpe_3Y_Percentile: 0.2561
+  Sharpe_3Y_ZScore: 0.1754
+  Sharpe_3Y: 0.1534
+  Tot_Ret_3Y: 0.0735
+  Mean_Ret_5Y_Ann: 0.0567
+  Performance_Composite: 0.0412
+  Performance_Range: 0.0245
+  Risk_Adjusted_Return: 0.0148
+  Age_Risk_Interaction: 0.0139
+  Std_Dev_1Y-M: 0.0137
+
+Consensus Features (Top 10 in all methods): 6
+  • Tot_Ret_3Y
+  • Sharpe_3Y_ZScore
+  • Performance_Composite
+  • Sharpe_3Y
+  • Sharpe_3Y_Percentile
+  • Mean_Ret_5Y_Ann
+
+🤖 STEP 4: Enhanced Machine Learning Modeling
+--------------------------------------------------
+Starting Enhanced Model Analysis...
+Creating advanced features...
+Advanced features created successfully!
+Using 23 features for modeling
+Training set: 370 samples
+Test set: 93 samples
+Class balance - Train: Is_Bottom_Quintile
+0    0.8
+1    0.2
+Name: proportion, dtype: float64
+Class balance - Test: Is_Bottom_Quintile
+0    0.795699
+1    0.204301
+Name: proportion, dtype: float64
+
+Training multiple models...
+Training Random Forest...
+Random Forest ROC-AUC: 0.9723
+Training Gradient Boosting...
+Gradient Boosting ROC-AUC: 0.9531
+Training Logistic Regression...
+Logistic Regression ROC-AUC: 0.8457
+
+==================================================
+FINAL RESULTS SUMMARY
+==================================================
+
+Random Forest:
+  ROC-AUC: 0.9723
+  Precision: 0.9286
+  Recall: 0.6842
+  F1-Score: 0.7879
+  Best Parameters: {'class_weight': 'balanced', 'max_depth': 10, 'min_samples_leaf': 1, 'min_samples_split': 5, 'n_estimators': 100}
+
+Gradient Boosting:
+  ROC-AUC: 0.9531
+  Precision: 0.8667
+  Recall: 0.6842
+  F1-Score: 0.7647
+  Best Parameters: {'learning_rate': 0.15, 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 100}
+
+Logistic Regression:
+  ROC-AUC: 0.8457
+  Precision: 0.4839
+  Recall: 0.7895
+  F1-Score: 0.6000
+  Best Parameters: {'classifier__C': 0.1, 'classifier__penalty': 'l1', 'classifier__solver': 'liblinear'}
+
+Best Model: Random Forest
+Best ROC-AUC: 0.9723
+
+📈 STEP 5: Portfolio Backtesting Analysis
+--------------------------------------------------
+Creating sample time series data for backtesting...
+🚀 Starting Enhanced Portfolio Analysis...
+📊 Creating comprehensive visualizations...
+2025-08-27 17:13:21.309 Python[60374:8899633] The class 'NSSavePanel' overrides the method identifier.  This method is implemented by class 'NSWindow'
+📋 Generating detailed performance report...
+============================================================
+COMPREHENSIVE PORTFOLIO PERFORMANCE REPORT
+============================================================
+
+📈 RETURN ANALYSIS
+------------------------------
+Strategy Total Return:       34.43%
+Benchmark Total Return:       1.05%
+Excess Return:               33.38%
+Strategy Ann. Return:        16.69%
+Benchmark Ann. Return:        0.55%
+
+📊 RISK ANALYSIS
+------------------------------
+Strategy Volatility:          9.52%
+Benchmark Volatility:        14.31%
+Strategy Max Drawdown:       -3.97%
+Benchmark Max Drawdown:     -10.85%
+Beta:                        -0.207
+
+🎯 RISK-ADJUSTED RETURNS
+------------------------------
+Strategy Sharpe Ratio:        1.333
+Benchmark Sharpe Ratio:      -0.241
+Information Ratio:            0.740
+Sortino Ratio:                2.945
+Calmar Ratio:                 4.204
+Alpha (Annualized):          16.28%
+
+📈 ADDITIONAL METRICS
+------------------------------
+Win Rate:                    60.87%
+Best Month:                   5.93%
+Worst Month:                 -3.97%
+Positive Months:                 14
+Negative Months:                  9
+
+🏆 PERFORMANCE ASSESSMENT
+------------------------------
+✅ Outperformed benchmark in total returns
+✅ Superior risk-adjusted returns (Sharpe)
+❌ Higher maximum drawdown
+✅ Lower volatility
+
+Overall Score: 3/4
+🎉 EXCELLENT: Strategy significantly outperformed benchmark
+============================================================
+
+📋 STEP 6: Final Analysis Summary
+--------------------------------------------------
+
+======================================================================
+📊 COMPREHENSIVE ANALYSIS SUMMARY REPORT
+======================================================================
+
+📈 DATA OVERVIEW
+------------------------------
+Original Features:               29
+Enhanced Features:              139
+Features Created:               110
+Total Funds Analyzed:           463
+Bottom Quintile Funds:           93
+Class Imbalance Ratio:     3.98:1
+
+🔧 FEATURE ENGINEERING RESULTS
+------------------------------
+Consensus Features (Top methods):    6
+Top Consensus Features:
+  1. Tot_Ret_3Y
+  2. Sharpe_3Y_ZScore
+  3. Performance_Composite
+  4. Sharpe_3Y
+  5. Sharpe_3Y_Percentile
+
+🤖 MACHINE LEARNING INSIGHTS
+------------------------------
+Key findings from model comparison:
+• Multiple algorithms tested and compared
+• Best model selected based on ROC-AUC performance
+• Feature importance analyzed across different methods
+• Cross-validation used for robust evaluation
+
+📊 BACKTESTING PERFORMANCE
+------------------------------
+Backtest Period:                 24 months
+Strategy Total Return:      34.43%
+Benchmark Total Return:      1.05%
+Excess Return:              33.38%
+Strategy Sharpe Ratio:       1.333
+Information Ratio:           0.740
+Maximum Drawdown:           -3.97%
+
+💡 KEY RECOMMENDATIONS FOR MODEL IMPROVEMENT
+------------------------------
+  1. Collect more granular time series data (daily/weekly)
+  2. Incorporate macro-economic indicators
+  3. Add fund manager and fund family features
+  4. Implement ensemble methods combining multiple models
+  5. Use more sophisticated feature selection techniques
+  6. Implement walk-forward analysis for time series validation
+  7. Add alternative risk measures (VaR, CVaR, etc.)
+  8. Incorporate ESG and sustainability metrics
+  9. Add peer group relative performance features
+  10. Implement dynamic rebalancing rules
+
+🎯 NEXT STEPS
+------------------------------
+  • Validate results with out-of-sample data
+  • Implement real-time model updating
+  • Add transaction cost modeling
+  • Develop risk management overlays
+  • Create automated monitoring dashboards
+  • Test alternative target definitions
+  • Implement regime-aware modeling
+
+======================================================================
+
+🎉 Comprehensive Analysis Complete!
+======================================================================
