@@ -317,23 +317,6 @@ RAW_DATA_PATH = "data/CAPSTONE MUTUAL FUND.csv"
 - Model predictions should complement, not replace, fundamental analysis
 - Past backtesting results may not reflect future performance
 
-## 📞 Support & Contributing
-
-### Getting Help
-- Check the documentation for common issues
-- Review the code comments for implementation details
-- Examine the visualization outputs for model diagnostics
-
-### Contributing
-- Follow PEP 8 style guidelines
-- Add comprehensive docstrings
-- Include unit tests for new features
-- Update documentation for any changes
-
-## 📜 License
-
-This project is provided for educational and research purposes. Please ensure compliance with relevant financial regulations when using for commercial purposes.
-
 ---
 
 **Last Updated**: August 2025  
